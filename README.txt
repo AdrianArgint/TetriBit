@@ -1,7 +1,5 @@
-Argint Adrian-Costel
-	313CB
 
-In cadrul temei am folosit functii din bibliotecile "stdio.h", "math.h" si "stdlib.h" precum "scanf", "printf", "sqrt" etc.
+In cadrul proiect pentru facultate am folosit functii din bibliotecile "stdio.h", "math.h" si "stdlib.h" precum "scanf", "printf", "sqrt" etc.
 
 Prima functie implementata se numeste "harta" si are scopul de a afisa
 harta dupa fiecare mutare a piesei. Are ca parametru o variabila de tip "unsinged long long", careia ii verifica fiecare cifra prin shiftarea la dreapta, incepand de la 63(cel mai semnificativ bit) pana la 0(cel mai putin semnificativ bit). Este de tip "void" intrucat nu returneaza nimic, ci afiseaza.
