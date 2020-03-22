@@ -1,0 +1,16 @@
+Argint Adrian-Costel
+	313CB
+
+In cadrul temei am folosit functii din bibliotecile "stdio.h", "math.h" si "stdlib.h" precum "scanf", "printf", "sqrt" etc.
+
+Prima functie implementata se numeste "harta" si are scopul de a afisa
+harta dupa fiecare mutare a piesei. Are ca parametru o variabila de tip "unsinged long long", careia ii verifica fiecare cifra prin shiftarea la dreapta, incepand de la 63(cel mai semnificativ bit) pana la 0(cel mai putin semnificativ bit). Este de tip "void" intrucat nu returneaza nimic, ci afiseaza.
+
+Urmatoarele doua functii, "verificareDreapta" si "verificare stanga",
+reprezinta o simpla proba. Astfel, daca piesa data de la tastatura se afla deja la margine de rand, aceasta nu mai trebuie shiftata in directia respectiva. Acestea returneaza "1" daca piesa este la extreme, iar "0" in caz contrar.
+
+Functia "eliminare", cum sugereaza si numele, are rolul de a verifica fiecare rand, iar daca aceste este plin cu 1, adica este ocupat, va elimina linia respectiva. Aceasta miscare este facuta cu ajutorul a doua variabile care retin partea de sub linia completa, respectiv de deasupra acesteia. Apoi se shifteaza la dreapta cu 8 spatii partea de sus pentru a o muta cu un rand mai jos, urmand sa se lipeasca cele doua, formand astfel harta dupa eliminare. Fie ca este efectuata o eliminare, fie ca nu, functia returneaza variabila "H", care reprezinta harta.
+
+Ultima functie implementata, "zerouri", nu face altceva decat sa numere cate zerouri contine harta, numararea facandu-se intr-un contor numit "c" si returneaza aceasta valoare.
+
+Functia principala "main" incepe cu declararea variabilelor, precum "H"(harta), "maskP"(Piesa in diversele transformari), "ok"(care ajuta la oprirea programului in cazul in care piesa nu are loc pe harta), "c"(contor pentru numarul de randuri ocupate de piesa), "M"(numarul de piese), iar vectorul "v[100][9]"(retine piesa si 8 transformari). Mai intai se afiseaza harta, apoi se ia piesa, contorul "c" ia valoare 1 sau 2 in functie de cat de mare este piesa si se incep transformarile. Pentru inceput, ok este 1, adica piesa nu poate fi mutata si for-ul respectivei piese trebuie sa se opreasca, deoarece aceasta nu se mai poate muta, s-a produs o coliziune. La sfarsitul transformarii se verifica daca piesa are in pe harta, in cazul in care aceasta este de doua randuri. In cazul favorit, se va shifta la dreapta cu 8, adica un rand mai jos, iar contorul scade. Astfel, "c" va deveni 0, iar acel if nu va mai fi luat in considerare dupa cel putin doua transformari ale fiecarei piese. Dupa fiecare piesa asezata pe harta, se verifica printr-un for daca harta este identica cu cea precedenta, iar daca da, este evident ca nu s-a produs nicio transformare si piesa nu a avut loc, asa ca se da un break pentru a opri for-ul initial, cel cu piesele. in caz contrariu, harta se va actualiza, urmand sa se apeleze functia eliminare, iar la fiecare eliminare de rand contorul "liniiComplete" va creste. Harta este apoi afisata din nou, iar acest proces este repetat pana la sfarsitul pieselor sau cand o piesa nu incape pe harta. Exista si scorul jocului, realizat prin "scor" de tip double si afisat cu o precizie de doua zecimale.
